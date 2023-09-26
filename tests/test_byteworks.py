@@ -1,7 +1,5 @@
 import byteworks
-
-def approx(a, b, eps = 0.00001):
-    return abs(a-b) <= eps
+import utility 
 
 def test_float2bits():
     exp = [
@@ -17,7 +15,7 @@ def test_bits2float():
         0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 
         0, 0, 0, 0, 0, 0, 1, 0]
     fval = byteworks.bits_to_float(bts)
-    assert approx(fval, 3.14159265)
+    assert utility.approx(fval, 3.14159265)
 
 def test_bits2floats():
     bts = [
@@ -30,7 +28,7 @@ def test_bits2floats():
         ]
     fvals = byteworks.bits_to_floats(bts)
     assert len(fvals) == 2
-    assert approx(fvals[0], 3.14159265)
+    assert utility.approx(fvals[0], 3.14159265)
     assert fvals[0] == fvals[1]
 
 
@@ -46,7 +44,7 @@ def test_floats2bits():
     finv = byteworks.bits_to_floats(bits)
 
     assert len(finv) == len(fs)
-    assert approx(finv[0], a)
-    assert approx(finv[1], b)
-    assert approx(finv[2], c)
+    assert utility.approx(finv[0], a)
+    assert utility.approx(finv[1], b)
+    assert utility.approx(finv[2], c)
 

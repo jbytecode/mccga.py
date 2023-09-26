@@ -1,14 +1,14 @@
 import ctypes
 
 
-def float_to_bits(f: float) -> list:
+def float_to_bits(f: float) -> list[int]:
     cf = ctypes.c_float(f)
     cu = ctypes.c_uint32.from_address(ctypes.addressof(cf))
     bts = [(cu.value >> i) & 1 for i in range(32)]
     return bts
 
 
-def bits_to_float(b: list) -> float:
+def bits_to_float(b: list[int]) -> float:
     uval = 0
 
     for i in range(32):
@@ -19,7 +19,7 @@ def bits_to_float(b: list) -> float:
     return cf.value
 
 
-def floats_to_bits(fs: list) -> list:
+def floats_to_bits(fs: list[float]) -> list[int]:
     bitlist = []
 
     for f in fs:
@@ -28,7 +28,7 @@ def floats_to_bits(fs: list) -> list:
     return bitlist
 
 
-def bits_to_floats(b: list) -> list:
+def bits_to_floats(b: list[int]) -> list[float]:
     bitsize = len(b)
     floatssize = int(bitsize / 32)
     floatvector = [0.0] * floatssize
