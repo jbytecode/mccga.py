@@ -18,7 +18,7 @@ def generate_probability_vector(mins: list, maxs: list, ntries: int) -> list:
     
     for _ in range(ntries):
         floats = random_vector_between(mins, maxs)
-        floatbits = byteworks.floats2bits(floats)
+        floatbits = byteworks.floats_to_bits(floats)
         for k in range(nbits):
             if floatbits[k] == 1:
                 probvector[k] = probvector[k] + mutrate
