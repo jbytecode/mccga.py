@@ -34,4 +34,3 @@ result = optimizer.mccga(f, rangemin, rangemax, mutrate, maxiter)
 
 - Julia (https://github.com/jmejia8/Metaheuristics.jl)
 - Rust (https://crates.io/crates/mccga)
-- Scala (https://github.com/jbytecode/compactga.scala)
