@@ -34,3 +34,29 @@ result = optimizer.mccga(f, rangemin, rangemax, mutrate, maxiter)
 
 - Julia (https://github.com/jmejia8/Metaheuristics.jl)
 - Rust (https://crates.io/crates/mccga)
+
+
+
+## Calling mccga() from R
+
+Thanks to the `reticulate` package, the Python function `mccga()` can be called into R.
+Here is the example:
+
+```R
+# The package for R & Python integration
+library(reticulate)
+
+# Loading the mccga library
+source_python("optimizer.py")
+
+# Defining the objective function 
+f <- function(xs){
+    val <- (xs[1] - 3.14159265)^2 + (xs[2] - 2.71828)^2
+    return(val)
+}
+
+result <- mccga(f, c(-100, -100), c(100, 100), 0.0001, 100000)
+
+> result
+[1] 3.141595 2.718276
+```
